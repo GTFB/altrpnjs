@@ -1,17 +1,33 @@
 {
-    "compilerOptions": {
-        "outDir": "resources/modules/front-app/src/ts/build/",
-        "noImplicitAny": false,
-        "noEmitOnError": true,
-        "removeComments": false,
-        "sourceMap": true,
-        "target": "es6",
-        "jsx": "react",
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
-        "moduleResolution": "Node",
-        "skipLibCheck": true
+  "extends": "./node_modules/adonis-preset-ts/tsconfig",
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "./",
+    "sourceMap": true,
+    "paths": {
+      "App/*": [
+        "./app/*"
+      ],
+      "Config/*": [
+        "./config/*"
+      ],
+      "Contracts/*": [
+        "./contracts/*"
+      ],
+      "Database/*": [
+        "./database/*"
+      ]
     },
-    "include": ["resources/modules/front-app/src/ts/src/"],
-    "exclude": ["node_modules"]
+    "types": [
+      "@adonisjs/core",
+      "@adonisjs/repl"
+    ]
+  }
 }
