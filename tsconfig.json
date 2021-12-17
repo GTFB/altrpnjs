@@ -5,6 +5,7 @@
   ],
   "exclude": [
     "node_modules",
+    "resources/modules",
     "build"
   ],
   "compilerOptions": {
@@ -27,7 +28,11 @@
     },
     "types": [
       "@adonisjs/core",
-      "@adonisjs/repl"
+      "@adonisjs/repl",
+      "@adonisjs/view",
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
+      "@adonisjs/session"
     ]
   }
 }

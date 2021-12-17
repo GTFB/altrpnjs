@@ -19,7 +19,31 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+// import {UserFactory} from "Database/factories";
 
 Route.get('/', async () => {
+  // await UserFactory.create()
   return { hello: 'world' }
 })
+
+Route.get("/login", "IndicesController.loginView")
+Route.post("/login", "IndicesController.login")
+
+Route.group(() => {
+
+  Route.get("/current-user", "users/UsersController.getCurrentUser")
+
+})
+.prefix("/ajax")
+
+Route.group(() => {
+
+  Route.group(() => {
+    Route.get("/areas", "admin/AreasController.index")
+  })
+    .prefix("/ajax")
+
+  Route.get('/', "IndicesController.admin")
+  Route.get('/*', "IndicesController.admin")
+})
+  .prefix("/admin")
