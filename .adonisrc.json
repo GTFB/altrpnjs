@@ -14,7 +14,8 @@
     "Contracts": "contracts"
   },
   "preloads": [
-    "./start/routes",
+    "./start/routes/routes",
+    "./start/routes/admin",
     "./start/kernel"
   ],
   "providers": [

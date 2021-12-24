@@ -7,6 +7,7 @@
 
 import user from 'App/Models/User'
 
+
 declare module '@ioc:Adonis/Addons/Auth' {
   /*
   |--------------------------------------------------------------------------

@@ -35,15 +35,3 @@ Route.group(() => {
 
 })
 .prefix("/ajax")
-
-Route.group(() => {
-
-  Route.group(() => {
-    Route.get("/areas", "admin/AreasController.index")
-  })
-    .prefix("/ajax")
-
-  Route.get('/', "IndicesController.admin")
-  Route.get('/*', "IndicesController.admin")
-})
-  .prefix("/admin")

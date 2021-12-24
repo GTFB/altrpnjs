@@ -10,18 +10,31 @@ export default class Templates extends BaseSchema {
 
       table.string("name").nullable()
       table.string("title").nullable()
-      table.string("data").nullable()
+      table.text("data", "longtext").nullable()
       table.string("type").nullable()
+      table.integer("parent_template").nullable().index()
       table.integer("user_id")
         .unsigned()
         .nullable()
         .references("users.id")
+      table.integer("area")
+        .defaultTo(1)
+        .unsigned()
+        .nullable()
+        .references("areas.id")
+      table.text("html_content", "longtext").nullable()
+      table.text("styles", "longtext").nullable()
+      table.boolean("all_site").defaultTo(false).index()
+      table.uuid("guid")
 
+
+      table.index("name", "template_name_index")
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
+      table.timestamp('deleted_at').nullable()
     })
   }
 
